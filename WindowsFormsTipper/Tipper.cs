@@ -26,7 +26,7 @@ namespace WindowsFormsTipper
             CaseIsEmpty = caseIsEmpty;
             BigWheels = bigWheels;
         }
-    
+
         public override void DrawTipper(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
@@ -57,7 +57,7 @@ namespace WindowsFormsTipper
             {
                 g.FillRectangle(trailer, _startPosX + 230, _startPosY + 40, 70, 50);
                 g.DrawRectangle(main, _startPosX + 230, _startPosY + 40, 70, 50);
-                
+
                 g.DrawLine(main, _startPosX + 230, _startPosY + 40, _startPosX + 240, _startPosY + 50);
                 g.DrawLine(main, _startPosX + 230, _startPosY + 90, _startPosX + 240, _startPosY + 80);
                 g.DrawLine(main, _startPosX + 290, _startPosY + 50, _startPosX + 300, _startPosY + 40);
@@ -73,6 +73,12 @@ namespace WindowsFormsTipper
                     g.DrawRectangle(main, _startPosX + 240, _startPosY + 50, 50, 30);
                 }
             }
+
+            
+        }
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
         }
     }
 }

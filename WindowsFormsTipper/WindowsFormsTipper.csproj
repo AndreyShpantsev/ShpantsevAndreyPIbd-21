@@ -53,9 +53,12 @@
     <Compile Include="FormTipper.Designer.cs">
       <DependentUpon>FormTipper.cs</DependentUpon>
     </Compile>
+    <Compile Include="ITipper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tipper.cs" />
+    <Compile Include="Truck.cs" />
+    <Compile Include="Vehicle.cs" />
     <EmbeddedResource Include="FormTipper.resx">
       <DependentUpon>FormTipper.cs</DependentUpon>
     </EmbeddedResource>

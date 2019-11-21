@@ -30,11 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTipper));
             this.pictureBoxTipper = new System.Windows.Forms.PictureBox();
-            this.buttonCreate = new System.Windows.Forms.Button();
+            this.ButtonCreateTruck = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
+            this.ButtonCreateTipper = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTipper)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,15 +48,15 @@
             this.pictureBoxTipper.TabIndex = 0;
             this.pictureBoxTipper.TabStop = false;
             // 
-            // buttonCreate
+            // ButtonCreateTruck
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(12, 12);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(108, 35);
-            this.buttonCreate.TabIndex = 1;
-            this.buttonCreate.Text = "Создать";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            this.ButtonCreateTruck.Location = new System.Drawing.Point(12, 12);
+            this.ButtonCreateTruck.Name = "ButtonCreateTruck";
+            this.ButtonCreateTruck.Size = new System.Drawing.Size(108, 35);
+            this.ButtonCreateTruck.TabIndex = 1;
+            this.ButtonCreateTruck.Text = "Создать грузовик";
+            this.ButtonCreateTruck.UseVisualStyleBackColor = true;
+            this.ButtonCreateTruck.Click += new System.EventHandler(this.ButtonCreateTruck_Click);
             // 
             // buttonUp
             // 
@@ -102,16 +103,27 @@
             this.buttonRight.UseVisualStyleBackColor = true;
             this.buttonRight.Click += new System.EventHandler(this.buttonMove_Click);
             // 
+            // ButtonCreateTipper
+            // 
+            this.ButtonCreateTipper.Location = new System.Drawing.Point(126, 12);
+            this.ButtonCreateTipper.Name = "ButtonCreateTipper";
+            this.ButtonCreateTipper.Size = new System.Drawing.Size(108, 35);
+            this.ButtonCreateTipper.TabIndex = 6;
+            this.ButtonCreateTipper.Text = "Создать самосвал";
+            this.ButtonCreateTipper.UseVisualStyleBackColor = true;
+            this.ButtonCreateTipper.Click += new System.EventHandler(this.ButtonCreateTipper_Click);
+            // 
             // FormTipper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.ButtonCreateTipper);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonUp);
-            this.Controls.Add(this.buttonCreate);
+            this.Controls.Add(this.ButtonCreateTruck);
             this.Controls.Add(this.pictureBoxTipper);
             this.Name = "FormTipper";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -124,11 +136,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxTipper;
-        private System.Windows.Forms.Button buttonCreate;
+        private System.Windows.Forms.Button ButtonCreateTruck;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonRight;
+        private System.Windows.Forms.Button ButtonCreateTipper;
     }
 }
 

@@ -65,8 +65,8 @@ namespace WindowsFormsTipper
             Brush sand = new SolidBrush(Color.LightGoldenrodYellow);
             Brush wheels = new SolidBrush(Color.DarkGray);
 
-            g.FillRectangle(trailer, _startPosX + 220, _startPosY + 55, 150, 20);
-            g.DrawRectangle(main, _startPosX + 220, _startPosY + 55, 150, 20);
+            g.FillRectangle(trailer, _startPosX + 230, _startPosY + 55, 70, 20);
+            g.DrawRectangle(main, _startPosX + 230, _startPosY + 55, 70, 20);
             g.FillRectangle(wheels, _startPosX + 240, _startPosY + 45, 20, 10);
             g.DrawRectangle(pen, _startPosX + 240, _startPosY + 45, 20, 10);
             g.FillRectangle(wheels, _startPosX + 262, _startPosY + 45, 20, 10);
@@ -75,16 +75,16 @@ namespace WindowsFormsTipper
             g.DrawRectangle(pen, _startPosX + 240, _startPosY + 75, 20, 10);
             g.FillRectangle(wheels, _startPosX + 262, _startPosY + 75, 20, 10);
             g.DrawRectangle(pen, _startPosX + 262, _startPosY + 75, 20, 10);
-            g.FillRectangle(wheels, _startPosX + 382, _startPosY + 40, 15, 10);
-            g.DrawRectangle(pen, _startPosX + 382, _startPosY + 40, 15, 10);
-            g.FillRectangle(wheels, _startPosX + 382, _startPosY + 80, 15, 10);
-            g.DrawRectangle(pen, _startPosX + 382, _startPosY + 80, 15, 10);
-            g.FillRectangle(trailer, _startPosX + 370, _startPosY + 50, 10, 30);
-            g.DrawRectangle(main, _startPosX + 370, _startPosY + 50, 10, 30);
-            g.FillRectangle(trailer, _startPosX + 380, _startPosY + 43, 20, 44);
-            g.DrawRectangle(pen, _startPosX + 380, _startPosY + 43, 20, 44);
-            g.FillRectangle(trailer, _startPosX + 400, _startPosY + 53, 15, 24);
-            g.DrawRectangle(pen, _startPosX + 400, _startPosY + 53, 15, 24);
+            g.FillRectangle(wheels, _startPosX + 302, _startPosY + 40, 15, 10);
+            g.DrawRectangle(pen, _startPosX + 302, _startPosY + 40, 15, 10);
+            g.FillRectangle(wheels, _startPosX + 302, _startPosY + 80, 15, 10);
+            g.DrawRectangle(pen, _startPosX + 302, _startPosY + 80, 15, 10);
+            g.FillRectangle(trailer, _startPosX + 290, _startPosY + 50, 10, 30);
+            g.DrawRectangle(main, _startPosX + 290, _startPosY + 50, 10, 30);
+            g.FillRectangle(trailer, _startPosX + 300, _startPosY + 43, 20, 44);
+            g.DrawRectangle(pen, _startPosX + 300, _startPosY + 43, 20, 44);
+            g.FillRectangle(trailer, _startPosX + 320, _startPosY + 53, 15, 24);
+            g.DrawRectangle(pen, _startPosX + 320, _startPosY + 53, 15, 24);
 
 
         }

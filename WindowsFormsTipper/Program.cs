@@ -16,7 +16,7 @@ namespace WindowsFormsTipper
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormTipper());
+            Application.Run(new FormParking());
         }
     }
 }

@@ -12,76 +12,108 @@ namespace WindowsFormsTipper
 {
     public partial class FormParking : Form
     {
-        Parking<ITipper> parking;
+        MultiLevelParking parking;
+        private const int countLevel = 5;
 
         public FormParking()
         {
             InitializeComponent();
-            parking = new Parking<ITipper>(20, pictureBoxParking.Width,
+            parking = new MultiLevelParking(countLevel, pictureBoxParking.Width,
 pictureBoxParking.Height);
-            Draw();
-
+            for (int i = 0; i < countLevel; i++)
+            {
+                listBoxLevels.Items.Add("Уровень " + (i + 1));
+            }
+            listBoxLevels.SelectedIndex = 0;
+            
         }
 
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
-            Graphics gr = Graphics.FromImage(bmp);
-            parking.Draw(gr);
-            pictureBoxParking.Image = bmp;
+            if (listBoxLevels.SelectedIndex > -1)
+            {
+                Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
+                Graphics gr = Graphics.FromImage(bmp);
+                parking[listBoxLevels.SelectedIndex].Draw(gr);
+                pictureBoxParking.Image = bmp;
+            }
         }
 
         private void buttonSetTruck_Click_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxLevels.SelectedIndex > -1)
             {
-                var truck = new Truck(100, 1000, dialog.Color);
-                int place = parking + truck;
-                Draw();
-            } 
-        }
-
-        private void buttonTakeTransport_Click_Click(object sender, EventArgs e)
-        {
-            if (maskedTextBox.Text != "")
-            {
-                var car = parking - Convert.ToInt32(maskedTextBox.Text);
-                if (car != null)
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width,
-                   pictureBoxTakeCar.Height);
-                    Graphics gr = Graphics.FromImage(bmp);
-                    car.SetPosition(-215, -20, pictureBoxTakeCar.Width,
-                   pictureBoxTakeCar.Height);
-                    car.DrawTipper(gr);
-                    pictureBoxTakeCar.Image = bmp;
-                }
-                else
-                {
-                    Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width,
-                   pictureBoxTakeCar.Height);
-                    pictureBoxTakeCar.Image = bmp;
-                }
-                Draw();
-            }
-        }
-
-        private void buttonSetTipper_Click_Click(object sender, EventArgs e)
-        {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == DialogResult.OK)
-                {
-                    var tipper = new Tipper(100, 1000, dialog.Color, dialogDop.Color,
-                   true, false, true);
-                    int place = parking + tipper;
+                    var truck = new Truck(100, 1000, dialog.Color);
+                    int place = parking[listBoxLevels.SelectedIndex] + truck;
+                    if (place == -1)
+                    {
+                        MessageBox.Show("Нет свободных мест", "Ошибка",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     Draw();
                 }
             }
         }
 
+        private void buttonSetTipper_Click_Click(object sender, EventArgs e)
+        {
+            if (listBoxLevels.SelectedIndex > -1)
+            {
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    ColorDialog dialogDop = new ColorDialog();
+                    if (dialogDop.ShowDialog() == DialogResult.OK)
+                    {
+                        var tipper = new Tipper(100, 1000, dialog.Color,
+                       dialogDop.Color, true, true, true);
+                        int place = parking[listBoxLevels.SelectedIndex] + tipper;
+                        if (place == -1)
+                        {
+                            MessageBox.Show("Нет свободных мест", "Ошибка",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        Draw();
+                    }
+                }
+            }
+        }
+
+        private void buttonTakeTransport_Click_Click(object sender, EventArgs e)
+        {
+            if (listBoxLevels.SelectedIndex > -1)
+            {
+                if (maskedTextBox.Text != "")
+                {
+                    var car = parking[listBoxLevels.SelectedIndex] -
+                   Convert.ToInt32(maskedTextBox.Text);
+                    if (car != null)
+                    {
+                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width,
+                       pictureBoxTakeCar.Height);
+                        Graphics gr = Graphics.FromImage(bmp);
+                        car.SetPosition(-215, -20, pictureBoxTakeCar.Width,
+                   pictureBoxTakeCar.Height);
+                        car.DrawTipper(gr);
+                        pictureBoxTakeCar.Image = bmp;
+                    }
+                    else
+                    {
+                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width,
+                       pictureBoxTakeCar.Height);
+                        pictureBoxTakeCar.Image = bmp;
+                    }
+                    Draw();
+                }
+            }
+        }
+
+        private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
+        }
     }
 }

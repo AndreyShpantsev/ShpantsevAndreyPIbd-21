@@ -12,6 +12,5 @@ namespace WindowsFormsTipper
         void SetPosition(int x, int y, int width, int height);
         void MoveTipper(Direction direction);
         void DrawTipper(Graphics g);
-
     }
 }

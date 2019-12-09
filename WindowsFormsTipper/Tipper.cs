@@ -45,32 +45,32 @@ namespace WindowsFormsTipper
                 g.DrawRectangle(pen, _startPosX + 240, _startPosY + 75, 15, 20);
                 g.FillRectangle(wheels, _startPosX + 258, _startPosY + 75, 15, 20);
                 g.DrawRectangle(pen, _startPosX + 258, _startPosY + 75, 15, 20);
-                g.FillRectangle(wheels, _startPosX + 382, _startPosY + 35, 15, 20);
-                g.DrawRectangle(pen, _startPosX + 382, _startPosY + 35, 15, 20);
-                g.FillRectangle(wheels, _startPosX + 382, _startPosY + 75, 15, 20);
-                g.DrawRectangle(pen, _startPosX + 382, _startPosY + 75, 15, 20);
+                g.FillRectangle(wheels, _startPosX + 302, _startPosY + 35, 15, 20);
+                g.DrawRectangle(pen, _startPosX + 302, _startPosY + 35, 15, 20);
+                g.FillRectangle(wheels, _startPosX + 302, _startPosY + 75, 15, 20);
+                g.DrawRectangle(pen, _startPosX + 302, _startPosY + 75, 15, 20);
 
             }
             base.DrawTipper(g);
 
             if (TipperCase)
             {
-                g.FillRectangle(trailer, _startPosX + 220, _startPosY + 40, 150, 50);
-                g.DrawRectangle(main, _startPosX + 220, _startPosY + 40, 150, 50);
+                g.FillRectangle(trailer, _startPosX + 230, _startPosY + 40, 70, 50);
+                g.DrawRectangle(main, _startPosX + 230, _startPosY + 40, 70, 50);
                 
-                g.DrawLine(main, _startPosX + 220, _startPosY + 40, _startPosX + 240, _startPosY + 50);
-                g.DrawLine(main, _startPosX + 220, _startPosY + 90, _startPosX + 240, _startPosY + 80);
-                g.DrawLine(main, _startPosX + 350, _startPosY + 50, _startPosX + 370, _startPosY + 40);
-                g.DrawLine(main, _startPosX + 350, _startPosY + 80, _startPosX + 370, _startPosY + 90);
+                g.DrawLine(main, _startPosX + 230, _startPosY + 40, _startPosX + 240, _startPosY + 50);
+                g.DrawLine(main, _startPosX + 230, _startPosY + 90, _startPosX + 240, _startPosY + 80);
+                g.DrawLine(main, _startPosX + 290, _startPosY + 50, _startPosX + 300, _startPosY + 40);
+                g.DrawLine(main, _startPosX + 290, _startPosY + 80, _startPosX + 300, _startPosY + 90);
                 if (CaseIsEmpty)
                 {
-                    g.FillRectangle(trailer, _startPosX + 240, _startPosY + 50, 110, 30);
-                    g.DrawRectangle(main, _startPosX + 240, _startPosY + 50, 110, 30);
+                    g.FillRectangle(trailer, _startPosX + 240, _startPosY + 50, 50, 30);
+                    g.DrawRectangle(main, _startPosX + 240, _startPosY + 50, 50, 30);
                 }
                 else
                 {
-                    g.FillRectangle(sand, _startPosX + 240, _startPosY + 50, 110, 30);
-                    g.DrawRectangle(main, _startPosX + 240, _startPosY + 50, 110, 30);
+                    g.FillRectangle(sand, _startPosX + 240, _startPosY + 50, 50, 30);
+                    g.DrawRectangle(main, _startPosX + 240, _startPosY + 50, 50, 30);
                 }
             }
         }

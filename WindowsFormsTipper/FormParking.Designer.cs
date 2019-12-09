@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.pictureBoxParking = new System.Windows.Forms.PictureBox();
-            this.buttonSetTipper_Click = new System.Windows.Forms.Button();
-            this.buttonSetTruck_Click = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -38,6 +36,7 @@
             this.pictureBoxTakeCar = new System.Windows.Forms.PictureBox();
             this.listBoxLevels = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).BeginInit();
             this.SuspendLayout();
@@ -49,26 +48,6 @@
             this.pictureBoxParking.Size = new System.Drawing.Size(734, 454);
             this.pictureBoxParking.TabIndex = 0;
             this.pictureBoxParking.TabStop = false;
-            // 
-            // buttonSetTipper_Click
-            // 
-            this.buttonSetTipper_Click.Location = new System.Drawing.Point(752, 198);
-            this.buttonSetTipper_Click.Name = "buttonSetTipper_Click";
-            this.buttonSetTipper_Click.Size = new System.Drawing.Size(119, 43);
-            this.buttonSetTipper_Click.TabIndex = 1;
-            this.buttonSetTipper_Click.Text = "Припарковать самосвал";
-            this.buttonSetTipper_Click.UseVisualStyleBackColor = true;
-            this.buttonSetTipper_Click.Click += new System.EventHandler(this.buttonSetTipper_Click_Click);
-            // 
-            // buttonSetTruck_Click
-            // 
-            this.buttonSetTruck_Click.Location = new System.Drawing.Point(752, 146);
-            this.buttonSetTruck_Click.Name = "buttonSetTruck_Click";
-            this.buttonSetTruck_Click.Size = new System.Drawing.Size(119, 46);
-            this.buttonSetTruck_Click.TabIndex = 2;
-            this.buttonSetTruck_Click.Text = "Припарковать грузовик";
-            this.buttonSetTruck_Click.UseVisualStyleBackColor = true;
-            this.buttonSetTruck_Click.Click += new System.EventHandler(this.buttonSetTruck_Click_Click);
             // 
             // label1
             // 
@@ -120,6 +99,7 @@
             this.listBoxLevels.Name = "listBoxLevels";
             this.listBoxLevels.Size = new System.Drawing.Size(120, 95);
             this.listBoxLevels.TabIndex = 8;
+            this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -130,11 +110,22 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Уровни";
             // 
+            // button
+            // 
+            this.button.Location = new System.Drawing.Point(752, 151);
+            this.button.Name = "button";
+            this.button.Size = new System.Drawing.Size(119, 64);
+            this.button.TabIndex = 10;
+            this.button.Text = "Выбрать транспорт";
+            this.button.UseVisualStyleBackColor = true;
+            this.button.Click += new System.EventHandler(this.button_Click);
+            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 468);
+            this.Controls.Add(this.button);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.pictureBoxTakeCar);
@@ -142,8 +133,6 @@
             this.Controls.Add(this.maskedTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonSetTruck_Click);
-            this.Controls.Add(this.buttonSetTipper_Click);
             this.Controls.Add(this.pictureBoxParking);
             this.Name = "FormParking";
             this.Text = "Парковка";
@@ -157,8 +146,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxParking;
-        private System.Windows.Forms.Button buttonSetTipper_Click;
-        private System.Windows.Forms.Button buttonSetTruck_Click;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox maskedTextBox;
@@ -166,5 +153,6 @@
         private System.Windows.Forms.PictureBox pictureBoxTakeCar;
         private System.Windows.Forms.ListBox listBoxLevels;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button;
     }
 }

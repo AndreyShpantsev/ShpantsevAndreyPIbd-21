@@ -13,6 +13,7 @@ namespace WindowsFormsTipper
     public partial class FormParking : Form
     {
         MultiLevelParking parking;
+        FormCarConfig form;
         private const int countLevel = 5;
 
         public FormParking()
@@ -114,6 +115,29 @@ pictureBoxParking.Height);
         private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
+        }
+
+        private void button_Click(object sender, EventArgs e)
+        {
+            form = new FormCarConfig();
+            form.AddEvent(AddCar);
+            form.Show();
+        }
+
+        private void AddCar(ITipper car)
+        {
+            if (car != null && listBoxLevels.SelectedIndex > -1)
+            {
+                int place = parking[listBoxLevels.SelectedIndex] + car;
+                if (place > -1)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Машину не удалось поставить");
+                }
+            }
         }
     }
 }

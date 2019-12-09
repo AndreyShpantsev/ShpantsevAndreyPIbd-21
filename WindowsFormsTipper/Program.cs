@@ -6,6 +6,8 @@ using System.Windows.Forms;
 
 namespace WindowsFormsTipper
 {
+    public delegate void carDelegate(ITipper car);
+
     static class Program
     {
         /// <summary>

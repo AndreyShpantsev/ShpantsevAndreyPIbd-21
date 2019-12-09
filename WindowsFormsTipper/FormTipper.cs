@@ -12,7 +12,7 @@ namespace WindowsFormsTipper
 {
     public partial class FormTipper : Form
     {
-        private Tipper tipper;
+        private ITipper tipper;
 
         public FormTipper()
         {
@@ -23,15 +23,24 @@ namespace WindowsFormsTipper
         {
             Bitmap bmp = new Bitmap(pictureBoxTipper.Width, pictureBoxTipper.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            tipper.DrawCar(gr);
+            tipper.DrawTipper(gr);
             pictureBoxTipper.Image = bmp;
         }
 
-        private void buttonCreate_Click(object sender, EventArgs e)
+        private void ButtonCreateTruck_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            tipper = new Tipper(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Yellow, 
-                Color.Orange, true, true, true);
+            tipper = new Truck(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.IndianRed);
+            tipper.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTipper.Width,
+           pictureBoxTipper.Height);
+            Draw();
+        }
+
+        private void ButtonCreateTipper_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            tipper = new Tipper(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Yellow,
+                Color.Orange, true, false, true);
             tipper.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTipper.Width,
            pictureBoxTipper.Height);
             Draw();
@@ -57,7 +66,5 @@ namespace WindowsFormsTipper
             }
             Draw();
         }
-
-        
     }
 }

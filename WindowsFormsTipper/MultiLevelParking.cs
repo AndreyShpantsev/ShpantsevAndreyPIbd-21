@@ -51,18 +51,18 @@ namespace WindowsFormsTipper
                     sw.WriteLine("Level");
                     for (int i = 0; i < countPlaces; i++)
                     {
-                        var car = level[i];
-                        if (car != null)
+                        var vehicle = level[i];
+                        if (vehicle != null)
                         {
-                            if (car.GetType().Name == "Truck")
+                            if (vehicle.GetType().Name == "Truck")
                             {
                                 sw.Write(i + ":Truck:");
                             }
-                            if (car.GetType().Name == "Tipper")
+                            if (vehicle.GetType().Name == "Tipper")
                             {
                                 sw.Write(i + ":Tipper:");
                             }
-                            sw.WriteLine(car);
+                            sw.WriteLine(vehicle);
                         }
                     }
                 }
@@ -74,14 +74,14 @@ namespace WindowsFormsTipper
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
-            string buffer = "";
+            string buff = "";
             using (StreamReader sr = new StreamReader(filename))
             {
-                if ((buffer = sr.ReadLine()).Contains("CountLeveles"))
+                if ((buff = sr.ReadLine()).Contains("CountLeveles"))
                 {
-                    int count = Convert.ToInt32(buffer.Split(':')[1]);
+                    int count = Convert.ToInt32(buff.Split(':')[1]);
                     if (parkingStages != null)
                     {
                         parkingStages.Clear();
@@ -90,32 +90,31 @@ namespace WindowsFormsTipper
                 }
                 else
                 {
-                    return false;
+                    throw new Exception("Неверный формат файла");
                 }
                 int counter = -1;
-                ITipper car = null;
-                while ((buffer = sr.ReadLine()) != null)
+                ITipper vehicle = null;
+                while ((buff = sr.ReadLine()) != null)
                 {
-                    if (buffer == "Level")
+                    if (buff == "Level")
                     {
                         counter++;
                         parkingStages.Add(new Parking<ITipper>(countPlaces, width, height));
                         continue;
                     }
-                    if (string.IsNullOrEmpty(buffer))
+                    if (string.IsNullOrEmpty(buff))
                     {
                         continue;
                     }
-                    if (buffer.Split(':')[1] == "Truck")
+                    if (buff.Split(':')[1] == "Truck")
                     {
-                        Console.WriteLine(buffer.Split(':')[2]);
-                        car = new Truck(buffer.Split(':')[2]);
+                        vehicle = new Truck(buff.Split(':')[2]);
                     }
-                    else if (buffer.Split(':')[1] == "Tipper")
+                    else if (buff.Split(':')[1] == "Tipper")
                     {
-                        car = new Tipper(buffer.Split(':')[2]);
+                        vehicle = new Tipper(buff.Split(':')[2]);
                     }
-                    parkingStages[counter][Convert.ToInt32(buffer.Split(':')[0])] = car;
+                    parkingStages[counter][Convert.ToInt32(buff.Split(':')[0])] = vehicle;
                 }
             }
             return true;

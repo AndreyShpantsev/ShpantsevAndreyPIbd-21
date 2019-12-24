@@ -105,4 +105,4 @@ namespace WindowsFormsTipper
             return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
         }
     }
-    }
+}

@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace WindowsFormsTipper
 {
-    public class Tipper : Truck
+    public class Tipper : Truck, IComparable<Tipper>, IEquatable<Tipper>
     {
         public Color DopColor { private set; get; }
 
@@ -101,5 +101,79 @@ namespace WindowsFormsTipper
             return base.ToString() + ";" + DopColor.Name + ";" + TipperCase + ";" +
            BigWheels + ";" + CaseIsEmpty;
         }
+
+        public int CompareTo(Tipper other)
+        {
+            var res = (this is Tipper).CompareTo(other is Tipper);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                DopColor.Name.CompareTo(other.DopColor.Name);
+            }
+            if (TipperCase != other.TipperCase)
+            {
+                return TipperCase.CompareTo(other.TipperCase);
+            }
+            if (BigWheels != other.BigWheels)
+            {
+                return BigWheels.CompareTo(other.BigWheels);
+            }
+            if (CaseIsEmpty != other.CaseIsEmpty)
+            {
+                return CaseIsEmpty.CompareTo(other.CaseIsEmpty);
+            }
+            return 0;
+        }
+
+        public bool Equals(Tipper other)
+        {
+            var res = (this as Truck).Equals(other as Truck);
+            if (!res)
+            {
+                return res;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (TipperCase != other.TipperCase)
+            {
+                return false;
+            }
+            if (BigWheels != other.BigWheels)
+            {
+                return false;
+            }
+            if (CaseIsEmpty != other.CaseIsEmpty)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Tipper carObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(carObj);
+            }
+        }
+
+
     }
 }

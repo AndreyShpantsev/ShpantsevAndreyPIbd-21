@@ -37,7 +37,7 @@ namespace WindowsFormsTipper
             }
         }
 
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
@@ -49,24 +49,23 @@ namespace WindowsFormsTipper
                 foreach (var level in parkingStages)
                 {
                     sw.WriteLine("Level");
-                    for (int i = 0; i < countPlaces; i++)
+                    foreach (ITipper car in level)
                     {
-                        var vehicle = level[i];
+                        var vehicle = level[level.GetKey];
                         if (vehicle != null)
                         {
                             if (vehicle.GetType().Name == "Truck")
                             {
-                                sw.Write(i + ":Truck:");
+                                sw.Write(level.GetKey + ":Truck:");
                             }
                             if (vehicle.GetType().Name == "Tipper")
                             {
-                                sw.Write(i + ":Tipper:");
+                                sw.Write(level.GetKey + ":Tipper:");
                             }
                             sw.WriteLine(vehicle);
                         }
                     }
                 }
-                return true;
             }
         }
 
@@ -119,5 +118,10 @@ namespace WindowsFormsTipper
             }
             return true;
         }
+
+        public void Sort()
+        {
+            parkingStages.Sort();
+        }
     }
 }

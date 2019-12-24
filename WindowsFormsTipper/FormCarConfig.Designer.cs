@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.pictureBoxCar = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxCar = new System.Windows.Forms.GroupBox();
             this.labelTipper = new System.Windows.Forms.Label();
             this.labelTruck = new System.Windows.Forms.Label();
             this.panelCar = new System.Windows.Forms.Panel();
             this.labelDopColor = new System.Windows.Forms.Label();
             this.labelMainColor = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxColor = new System.Windows.Forms.GroupBox();
             this.panelWhite = new System.Windows.Forms.Panel();
             this.panelPurple = new System.Windows.Forms.Panel();
             this.panelBlue = new System.Windows.Forms.Panel();
@@ -47,9 +47,9 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCar)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxCar.SuspendLayout();
             this.panelCar.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxColor.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxCar
@@ -63,16 +63,16 @@
             this.pictureBoxCar.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelCar_DragDrop);
             this.pictureBoxCar.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelCar_DragEnter);
             // 
-            // groupBox1
+            // groupBoxCar
             // 
-            this.groupBox1.Controls.Add(this.labelTipper);
-            this.groupBox1.Controls.Add(this.labelTruck);
-            this.groupBox1.Location = new System.Drawing.Point(46, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(207, 121);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Тип кузова";
+            this.groupBoxCar.Controls.Add(this.labelTipper);
+            this.groupBoxCar.Controls.Add(this.labelTruck);
+            this.groupBoxCar.Location = new System.Drawing.Point(46, 12);
+            this.groupBoxCar.Name = "groupBoxCar";
+            this.groupBoxCar.Size = new System.Drawing.Size(207, 121);
+            this.groupBoxCar.TabIndex = 1;
+            this.groupBoxCar.TabStop = false;
+            this.groupBoxCar.Text = "Тип кузова";
             // 
             // labelTipper
             // 
@@ -135,22 +135,22 @@
             this.labelMainColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragDrop);
             this.labelMainColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
             // 
-            // groupBox2
+            // groupBoxColor
             // 
-            this.groupBox2.Controls.Add(this.panelWhite);
-            this.groupBox2.Controls.Add(this.panelPurple);
-            this.groupBox2.Controls.Add(this.panelBlue);
-            this.groupBox2.Controls.Add(this.panelAqua);
-            this.groupBox2.Controls.Add(this.panelGreen);
-            this.groupBox2.Controls.Add(this.panelYellow);
-            this.groupBox2.Controls.Add(this.panelOrange);
-            this.groupBox2.Controls.Add(this.panelRed);
-            this.groupBox2.Location = new System.Drawing.Point(46, 140);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 118);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Выбор цвета";
+            this.groupBoxColor.Controls.Add(this.panelWhite);
+            this.groupBoxColor.Controls.Add(this.panelPurple);
+            this.groupBoxColor.Controls.Add(this.panelBlue);
+            this.groupBoxColor.Controls.Add(this.panelAqua);
+            this.groupBoxColor.Controls.Add(this.panelGreen);
+            this.groupBoxColor.Controls.Add(this.panelYellow);
+            this.groupBoxColor.Controls.Add(this.panelOrange);
+            this.groupBoxColor.Controls.Add(this.panelRed);
+            this.groupBoxColor.Location = new System.Drawing.Point(46, 140);
+            this.groupBoxColor.Name = "groupBoxColor";
+            this.groupBoxColor.Size = new System.Drawing.Size(200, 118);
+            this.groupBoxColor.TabIndex = 3;
+            this.groupBoxColor.TabStop = false;
+            this.groupBoxColor.Text = "Выбор цвета";
             // 
             // panelWhite
             // 
@@ -258,15 +258,15 @@
             this.ClientSize = new System.Drawing.Size(508, 323);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBoxColor);
             this.Controls.Add(this.panelCar);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxCar);
             this.Name = "FormCarConfig";
             this.Text = "Выбор машины";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCar)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.groupBoxCar.ResumeLayout(false);
             this.panelCar.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.groupBoxColor.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -274,13 +274,13 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxCar;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxCar;
         private System.Windows.Forms.Label labelTipper;
         private System.Windows.Forms.Label labelTruck;
         private System.Windows.Forms.Panel panelCar;
         private System.Windows.Forms.Label labelDopColor;
         private System.Windows.Forms.Label labelMainColor;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxColor;
         private System.Windows.Forms.Panel panelWhite;
         private System.Windows.Forms.Panel panelPurple;
         private System.Windows.Forms.Panel panelBlue;

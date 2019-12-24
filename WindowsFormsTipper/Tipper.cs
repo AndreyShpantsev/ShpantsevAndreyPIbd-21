@@ -27,6 +27,21 @@ namespace WindowsFormsTipper
             BigWheels = bigWheels;
         }
 
+        public Tipper(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 8)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                TipperCase = Convert.ToBoolean(strs[4]);
+                BigWheels = Convert.ToBoolean(strs[5]);
+                CaseIsEmpty = Convert.ToBoolean(strs[6]);
+            }
+        }
+
         public override void DrawTipper(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
@@ -79,6 +94,12 @@ namespace WindowsFormsTipper
         public void SetDopColor(Color color)
         {
             DopColor = color;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + ";" + DopColor.Name + ";" + TipperCase + ";" +
+           BigWheels + ";" + CaseIsEmpty;
         }
     }
 }

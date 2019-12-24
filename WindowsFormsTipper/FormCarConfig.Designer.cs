@@ -214,7 +214,7 @@
             // 
             // panelOrange
             // 
-            this.panelOrange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panelOrange.BackColor = System.Drawing.Color.Orange;
             this.panelOrange.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelOrange.Location = new System.Drawing.Point(57, 19);
             this.panelOrange.Name = "panelOrange";

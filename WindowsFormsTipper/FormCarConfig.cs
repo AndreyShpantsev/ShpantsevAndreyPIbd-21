@@ -19,6 +19,7 @@ namespace WindowsFormsTipper
         public FormCarConfig()
         {
             InitializeComponent();
+            buttonCancel.Click += (object sender, EventArgs e) => { Close(); };
         }
 
         private void labelTruck_MouseDown(object sender, MouseEventArgs e)
@@ -121,11 +122,6 @@ DragDropEffects.Copy);
                     DrawCar();
                 }
             }
-        }
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
